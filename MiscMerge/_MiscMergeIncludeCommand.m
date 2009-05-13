@@ -53,7 +53,7 @@
     resolvedFilename = [template resolveTemplateFilename:filename];
 
     if ([resolvedFilename length] > 0)
-        fileString = [[NSString alloc] initWithContentsOfFile:resolvedFilename];
+        fileString = [[[NSString alloc] initWithContentsOfFile:resolvedFilename] autorelease];
 
     if (fileString)
     {
@@ -67,7 +67,7 @@
         [newTemplate setFilename:resolvedFilename];
         [newTemplate setDelegate:[template delegate]];
         [newTemplate parseString:fileString];
-        commandBlock = [[newTemplate topLevelCommandBlock] retain];
+		commandBlock = [[newTemplate topLevelCommandBlock] retain];
         [newTemplate release];
     }
     else

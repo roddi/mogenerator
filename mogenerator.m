@@ -313,7 +313,10 @@ NSString *ApplicationSupportSubdirectoryName = @"mogenerator";
         }
         assert(momc && "momc not found");
         
-        tempMOMPath = [[NSTemporaryDirectory() stringByAppendingPathComponent:[(id)CFUUIDCreateString(kCFAllocatorDefault, CFUUIDCreate(kCFAllocatorDefault)) autorelease]] stringByAppendingPathExtension:@"mom"];
+		CFUUIDRef tempUUID = CFUUIDCreate(kCFAllocatorDefault);
+        tempMOMPath = [[NSTemporaryDirectory() stringByAppendingPathComponent:[(id)CFUUIDCreateString(kCFAllocatorDefault, tempUUID) autorelease]] stringByAppendingPathExtension:@"mom"];
+		CFRelease(tempUUID);
+		
         system([[NSString stringWithFormat:@"\"%@\" \"%@\" \"%@\"", momc, path, tempMOMPath] UTF8String]); // Ignored system's result -- momc doesn't return any relevent error codes.
         path = tempMOMPath;
     }

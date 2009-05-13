@@ -446,7 +446,7 @@
 {
     NSAutoreleasePool *localPool = [[NSAutoreleasePool alloc] init];
     NSScanner *scanner = [NSScanner scannerWithString:string];
-    NSMutableString *accumString = [[NSMutableString alloc] init];
+    NSMutableString *accumString = [[[NSMutableString alloc] init] autorelease];
     NSString *currString;
     int nestingLevel = 0;
     int maxNestingLevel = 0;
