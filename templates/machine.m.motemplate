@@ -36,11 +36,11 @@
 
 - (<$Attribute.scalarAttributeType$>)<$Attribute.name$>Value {
 	NSNumber *result = [self <$Attribute.name$>];
-	return result ? [result <$Attribute.scalarAttributeType.camelCaseString$>Value] : 0;
+	return result ? [result <$Attribute.scalarAttributeTypeForNumber.camelCaseString$>Value] : 0;
 }
 
 - (void)set<$Attribute.name.initialCapitalString$>Value:(<$Attribute.scalarAttributeType$>)value_ {
-	[self set<$Attribute.name.initialCapitalString$>:[NSNumber numberWith<$Attribute.scalarAttributeType.camelCaseString.initialCapitalString$>:value_]];
+	[self set<$Attribute.name.initialCapitalString$>:[NSNumber numberWith<$Attribute.scalarAttributeTypeForNumber.camelCaseString.initialCapitalString$>:value_]];
 }
 
 <$endif$>

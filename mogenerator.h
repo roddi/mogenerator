@@ -26,6 +26,7 @@
 @interface NSAttributeDescription (scalarAttributeType)
 - (BOOL)hasScalarAttributeType;
 - (NSString*)scalarAttributeType;
+- (NSString*)scalarAttributeTypeForNumber;
 - (BOOL)hasDefinedAttributeType;
 - (NSString*)objectAttributeType;
 @end

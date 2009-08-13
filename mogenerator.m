@@ -150,7 +150,7 @@ NSString	*gCustomBaseClass;
 			return @"short";
 			break;
 		case NSInteger32AttributeType:
-			return @"int";
+			return @"NSInteger";
 			break;
 		case NSInteger64AttributeType:
 			return @"long long";
@@ -168,6 +168,17 @@ NSString	*gCustomBaseClass;
 			return nil;
 	}
 }
+// NSInteger = int
+- (NSString*)scalarAttributeTypeForNumber {
+	switch ([self attributeType]) {
+		case NSInteger32AttributeType:
+			return @"integer";
+			break;
+		default:
+			return [self scalarAttributeType];
+	}
+}
+
 - (BOOL)hasDefinedAttributeType {
 	return [self attributeType] != NSUndefinedAttributeType;
 }
